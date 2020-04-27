@@ -31,7 +31,7 @@ const ContactMeWrapper = styled.section`
   margin: 0 auto;
   padding-top: 100px;
   height: 97vh;
-  div{
+  div {
     text-align: center;
   }
 
@@ -93,7 +93,13 @@ const ContactMe = props => {
             {props.data.prismic.allContact_mes.edges[0].node.form_description}
           </p>
         </div>
-        <Form>
+        <Form
+          name="contact-me"
+          method="POST"
+          data-netlify="true"
+          action="/contact-success"
+        >
+          <input type="hidden" name="form-name" value="contact-me" />
           {props.data.prismic.allContact_mes.edges[0].node.form_fields.map(
             (field, i) => {
               console.log(field)
