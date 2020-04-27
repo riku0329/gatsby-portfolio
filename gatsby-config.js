@@ -5,6 +5,13 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    "gatsby-plugin-styled-components",
+    {
+      resolve: `gatsby-source-prismic-graphql`,
+      options: {
+        repositoryName: `gatsby-portfolio29`,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
