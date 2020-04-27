@@ -3,6 +3,7 @@ import React from "react"
 import Hero from "./hero"
 import About from "./about"
 import CallToActionGrid from "./callToActionGrid"
+import SkillList from "./skillList"
 
 const SliceZone = ({ body }) => {
   return (
@@ -34,8 +35,15 @@ const SliceZone = ({ body }) => {
               title={bodyContent.primary.section_title}
             />
           )
-        }
-        else {
+        } else if (bodyContent.type === "skils_list") {
+          return (
+            <SkillList
+              key={i}
+              skills={bodyContent.fields}
+              title={bodyContent.primary.skill_title}
+            />
+          )
+        } else {
           return null
         }
       })}

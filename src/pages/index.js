@@ -38,6 +38,16 @@ export const query = graphql`
                   featured_image
                 }
               }
+              ... on PRISMIC_HomepageBodySkils_list {
+                type
+                primary {
+                  skill_title
+                }
+                fields {
+                  skill_list_description
+                  skill_list_title
+                }
+              }
             }
           }
         }

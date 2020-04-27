@@ -30,7 +30,7 @@ const ContactMeWrapper = styled.section`
   max-width: 800px;
   margin: 0 auto;
   padding-top: 100px;
-  height: 85vh;
+  height: 97vh;
   div{
     text-align: center;
   }

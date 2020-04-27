@@ -18,6 +18,6 @@ export const SectionTitle = styled.p`
     height: 5px; /*線の太さ*/
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%); /*位置調整*/
-    background-color: #24252a; /*線の色*/
+  background-color: ${p => p.dark ? "#efeff4" : "#24252a"}; /*線の色*/
   }
 `

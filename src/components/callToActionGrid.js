@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import RichText from "./richText"
 import { SectionTitle } from "./sectionTitleStyled"
 import CallToActionBlock from "./callToActionBlock"
 
@@ -14,7 +13,6 @@ const CallToActionGrid = ({ title, callToActions }) => {
     <CallToActionGridWrapper>
       <SectionTitle>{title}</SectionTitle>
       {callToActions.map((callToAction, i) => {
-        console.log(callToAction)
         return (
           <CallToActionBlock
             key={i}
