@@ -89,6 +89,11 @@ const Branding = styled.div`
     font-size: 18px;
     color: #efeff4;
     text-decoration: none;
+    &:hover{
+      border-bottom: 2px solid #03dac5;
+      transition: .2s;
+      color: #03dac5;
+    }
   }
 `
 const Main = styled.main`
