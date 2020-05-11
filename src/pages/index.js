@@ -83,10 +83,9 @@ export const query = graphql`
 `
 
 const IndexPage = props => {
-  console.log(props)
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Home" description="ポートフォリオ" />
       <SliceZone body={props.data.prismic.allHomepages.edges[0].node.body} />
     </Layout>
   )

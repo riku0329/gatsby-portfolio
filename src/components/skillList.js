@@ -30,7 +30,6 @@ const SkillList = ({ title, skills }) => {
       <RichText render={title} />
       <div>
         {skills.map((skill, i) => {
-          console.log(skill)
           return (
             <SkillItem
               key={i}

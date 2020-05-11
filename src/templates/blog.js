@@ -59,7 +59,6 @@ const ArticleWrapper = styled.article`
 `
 
 const Blog = props => {
-  console.log(props)
   const title = props.data.prismic.allBlogs.edges[0].node.blog_title
   const description = props.data.prismic.allBlogs.edges[0].node.blog_description
   const date = props.data.prismic.allBlogs.edges[0].node.blog_date

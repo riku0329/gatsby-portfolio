@@ -11,7 +11,6 @@ const SliceZone = ({ body }) => {
   return (
     <div>
       {body.map((bodyContent, i) => {
-        console.log(bodyContent)
         if (bodyContent.type === "hero") {
           return (
             <Hero
