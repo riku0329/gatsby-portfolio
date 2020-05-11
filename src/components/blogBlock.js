@@ -1,8 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 import RichText from "./richText"
+import { Link } from "gatsby"
 
-const CallToActionBlockWrapper = styled.div`
+const BlogBlockWrapper = styled.div`
   background: #fff;
   display: flex;
   flex-direction: column;
@@ -20,22 +21,23 @@ const CallToActionBlockWrapper = styled.div`
     width: 90%;
   }
 
-  :hover{
+  :hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     opacity: 0.8;
   }
 
   img {
+    width: 100%;
+    height: 200px;
     margin: 0;
   }
 
-  .call-toaction-content {
+  .blog-block-content {
     display: flex;
     flex-direction: column;
     margin: 8px;
     p {
       color: #696969;
-      margin: 8px;
       padding-bottom: 12px;
       border-bottom: 1px solid #696969;
     }
@@ -45,20 +47,20 @@ const CallToActionBlockWrapper = styled.div`
   }
 `
 
-const CallToActionBlock = ({ title, date, featuredImage, link }) => {
+const BlogBlock = ({ destination, title, date, image }) => {
   return (
-    <CallToActionBlockWrapper>
-      <a href={link} target="_blank" rel="noreferrer noopener">
-        <div className="featured-image-wrapper">
-          <img src={featuredImage} alt="project" />
+    <BlogBlockWrapper>
+      <Link to={destination}>
+        <div>
+          <img src={image} alt="blogs" />
         </div>
-        <div className="call-toaction-content">
-          <p>作成日{date}</p>
+        <div className="blog-block-content">
+          <p>{date}</p>
           <RichText render={title} />
         </div>
-      </a>
-    </CallToActionBlockWrapper>
+      </Link>
+    </BlogBlockWrapper>
   )
 }
 
-export default CallToActionBlock
+export default BlogBlock

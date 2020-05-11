@@ -10,6 +10,14 @@ module.exports = {
       resolve: `gatsby-source-prismic-graphql`,
       options: {
         repositoryName: `gatsby-portfolio29`,
+        pages: [
+          {
+            type: `Blog`,
+            match: `/:uid`,
+            path: `/`,
+            component: require.resolve("./src/templates/blog.js"),
+          },
+        ],
       },
     },
     `gatsby-plugin-react-helmet`,

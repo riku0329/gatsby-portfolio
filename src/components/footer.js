@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 
 const FooterWrapper = styled.footer`
-  height: 20vh;
+  height: 30vh;
   background: #121212;
   color: #545557;
   display: flex;
@@ -16,6 +16,7 @@ const FooterWrapper = styled.footer`
   }
   a {
     text-decoration: none;
+    margin: 8px 0;
     color: #efeff4;
     :hover {
       color: #03dac5;

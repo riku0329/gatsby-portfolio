@@ -54,6 +54,7 @@ const Header = styled.header`
   transition: 0.5s;
   width: 100%;
   z-index: 10;
+  border-bottom: 2px solid #03dac5;
   > div {
     display: flex;
     justify-content: space-around;
@@ -112,8 +113,8 @@ const Branding = styled.div`
 const Main = styled.main``
 
 const Layout = ({ children }) => {
-  let prevScroll = window.pageYOffset
   useEffect(() => {
+    let prevScroll = window.pageYOffset
     document.addEventListener("scroll", () => {
       const currentScroll = window.pageYOffset
       if (prevScroll > currentScroll) {
@@ -123,7 +124,7 @@ const Layout = ({ children }) => {
       }
       prevScroll = currentScroll
     })
-  },[prevScroll])
+  })
   return (
     <>
       <Header id="header">

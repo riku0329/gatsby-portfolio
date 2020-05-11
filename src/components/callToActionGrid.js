@@ -36,9 +36,7 @@ const CallToActionGridWrapper = styled.section`
   .call-toaction-container {
     display: flex;
     width: 100%;
-    margin: 20px;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
 
     @media (max-width: 768px) {

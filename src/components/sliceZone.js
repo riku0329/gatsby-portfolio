@@ -4,6 +4,8 @@ import Hero from "./hero"
 import About from "./about"
 import CallToActionGrid from "./callToActionGrid"
 import SkillList from "./skillList"
+import ArticleGrid from "./articleGrid";
+import BlogGrid from "./blogGrid"
 
 const SliceZone = ({ body }) => {
   return (
@@ -36,7 +38,17 @@ const SliceZone = ({ body }) => {
               title={bodyContent.primary.section_title}
             />
           )
-        } else if (bodyContent.type === "skils_list") {
+        } else if (bodyContent.type === "blog_grid") {
+          return (
+            <BlogGrid
+              key={i}
+              blogGrids={bodyContent.fields}
+              title={bodyContent.primary.section_title}
+            />
+          )
+        }
+
+        else if (bodyContent.type === "skils_list") {
           return (
             <SkillList
               key={i}
@@ -44,7 +56,18 @@ const SliceZone = ({ body }) => {
               title={bodyContent.primary.section_title}
             />
           )
-        } else {
+        } else if (bodyContent.type === "article") {
+          return (
+            <ArticleGrid
+              key={i}
+              articles={bodyContent.fields}
+              title={bodyContent.primary.section_title}
+              description={bodyContent.primary.section_description}
+            />
+          )
+        }
+
+        else {
           return null
         }
       })}

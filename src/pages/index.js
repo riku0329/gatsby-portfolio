@@ -45,6 +45,25 @@ export const query = graphql`
                   }
                 }
               }
+              ... on PRISMIC_HomepageBodyBlog_grid {
+                type
+                fields {
+                  blog_date
+                  blog_grid_image
+                  blog_link {
+                    ... on PRISMIC_Blog {
+                      _meta {
+                        uid
+                      }
+                      _linkType
+                    }
+                  }
+                  blog_grid_title
+                }
+                primary {
+                  section_title
+                }
+              }
               ... on PRISMIC_HomepageBodySkils_list {
                 type
                 primary {
