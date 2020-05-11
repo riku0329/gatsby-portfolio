@@ -7,15 +7,9 @@ const SkillItemWrapper = styled.div`
   flex-basis: 0;
   margin: 50px 10px;
   padding: 0 5px;
-  position: relative;
-  transition: .5s;
   .skill-item-description {
     color: #c3ccdb;
     font-weight: bold;
-  }
-  &:hover {
-    transform: translateY(-1rem) scale(1);
-    border: solid 1px #03dac5;
   }
 `
 

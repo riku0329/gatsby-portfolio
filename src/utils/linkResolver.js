@@ -1,6 +1,6 @@
 export const linkResolver = doc => {
-  if (doc.type === "page") {
-    return `/${doc.uid}`
+  if (doc.type === "plog") {
+    return `/blog/${doc.uid}`
   }
 
   return "/"

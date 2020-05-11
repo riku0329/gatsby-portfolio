@@ -22,7 +22,8 @@ const SliceZone = ({ body }) => {
           return (
             <About
               key={i}
-              title={bodyContent.primary.about_title}
+              aboutTitle={bodyContent.primary.about_title}
+              title={bodyContent.primary.section_title}
               description={bodyContent.primary.about_description}
               image={bodyContent.primary.about_image.url}
             />
@@ -40,7 +41,7 @@ const SliceZone = ({ body }) => {
             <SkillList
               key={i}
               skills={bodyContent.fields}
-              title={bodyContent.primary.skill_title}
+              title={bodyContent.primary.section_title}
             />
           )
         } else {

@@ -1,47 +1,63 @@
 import React from "react"
 import styled from "styled-components"
 import RichText from "./richText"
+import { Link } from "gatsby"
 
 const CallToActionBlockWrapper = styled.div`
-  background: white;
-  padding: 20px;
-  margin: 50px 0;
-  border-radius: 3px;
-  box-shadow: 0 0px 20px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  height: 350px;
+  a {
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    margin: 20px 0;
+    width: 90%;
+  }
+
+  :hover{
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    opacity: 0.8;
+  }
+
+  img {
+    margin: 0;
+  }
+
   .call-toaction-content {
     display: flex;
-    @media (max-width: 768px){
-      flex-direction: column;
+    flex-direction: column;
+    margin: 8px;
+    p {
+      color: #696969;
+      margin: 8px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #696969;
     }
-    :hover {
-      opacity: 0.8;
-      cursor: pointer;
+    h4 {
+      color: #404040;
     }
-  }
-  .featured-image-wrapper {
-    padding: 10px;
-    margin: auto 10px;
-  }
-  img {
-    max-width: 500px;
-    @media (max-width: 768px) {
-    max-width: 300px;
-  }
   }
 `
 
-const CallToActionBlock = ({ title, content, featuredImage }) => {
+const CallToActionBlock = ({ title, date, featuredImage, link }) => {
   return (
     <CallToActionBlockWrapper>
-      <div className="call-toaction-content">
-        <div>
-          <RichText render={title} />
-          <RichText render={content} />
-        </div>
+      <a href={link} target="_blank" rel="noreferrer noopener">
         <div className="featured-image-wrapper">
           <img src={featuredImage} alt="project" />
         </div>
-      </div>
+        <div className="call-toaction-content">
+          <p>作成日{date}</p>
+          <RichText render={title} />
+        </div>
+      </a>
     </CallToActionBlockWrapper>
   )
 }

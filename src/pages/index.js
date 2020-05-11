@@ -22,9 +22,10 @@ export const query = graphql`
               ... on PRISMIC_HomepageBodyAbout {
                 type
                 primary {
+                  about_title
                   about_description
                   about_image
-                  about_title
+                  section_title
                 }
               }
               ... on PRISMIC_HomepageBodyCall_to_aciton_grid {
@@ -34,14 +35,20 @@ export const query = graphql`
                 }
                 fields {
                   call_to_action_title
-                  content
+                  call_to_action_date
                   featured_image
+                  call_to_action_link {
+                    ... on PRISMIC__ExternalLink {
+                      _linkType
+                      url
+                    }
+                  }
                 }
               }
               ... on PRISMIC_HomepageBodySkils_list {
                 type
                 primary {
-                  skill_title
+                  section_title
                 }
                 fields {
                   skill_list_description
@@ -57,6 +64,7 @@ export const query = graphql`
 `
 
 const IndexPage = props => {
+  console.log(props)
   return (
     <Layout>
       <SEO title="Home" />

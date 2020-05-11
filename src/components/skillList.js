@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { SectionTitle } from "./sectionTitleStyled"
+import RichText from "./richText"
 import SkillItem from "./skillItem"
 
 const SkillListWrapper = styled.section`
@@ -8,10 +8,12 @@ const SkillListWrapper = styled.section`
   padding-top: 100px;
   color: #efeff4;
   height: 100vh;
+  text-align: center;
+
   @media (max-width: 768px){
     height: 100%;
   }
-  > div {
+  >div {
     display: flex;
     color: #03dac5;
     max-width: 800px;
@@ -25,7 +27,7 @@ const SkillListWrapper = styled.section`
 const SkillList = ({ title, skills }) => {
   return (
     <SkillListWrapper>
-      <SectionTitle dark>{title}</SectionTitle>
+      <RichText render={title} />
       <div>
         {skills.map((skill, i) => {
           console.log(skill)

@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
@@ -45,42 +45,49 @@ const navigationQuery = graphql`
 `
 
 const Header = styled.header`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 66px;
-  padding: 0 16px;
-  box-sizing: border-box;
+  height: 70px;
   box-shadow: 0 0px 20px rgba(0, 0, 0, 0.2);
   background: #24252a;
   position: fixed;
+  padding: 0;
+  top: 0;
+  transition: 0.5s;
   width: 100%;
-`
-
-const NaviLinks = styled.div`
-  display: flex;
-`
-
-const NaviLink = styled.div`
-  a {
-    padding: 0 16px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
+  z-index: 10;
+  > div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+    height: 100%;
   }
 `
 
-const Button = styled.button`
-  padding: 5px 25px;
-  background: #03dac5;
-  border: none;
-  border-radius: 20px;
-  color: #24252a;
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-  &:hover {
-    background: #03dac5;
-    opacity: 0.8;
+const NaviLinks = styled.ul`
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+`
+
+const NaviLink = styled.li`
+  display: inline-block;
+  margin: 0 8px;
+  a {
+    text-decoration: none;
+    color: #efeff4;
+    padding-bottom: 3px;
+  }
+  a::after {
+    content: "";
+    width: 0;
+    transition: all 0.5s ease;
+    border-bottom: 2px solid #03dac5;
+    display: block;
+  }
+  a:hover::after {
+    width: 100%;
+    border-bottom: 2px solid #03dac5;
   }
 `
 const Branding = styled.div`
@@ -89,49 +96,67 @@ const Branding = styled.div`
     font-size: 18px;
     color: #efeff4;
     text-decoration: none;
-    &:hover{
-      border-bottom: 2px solid #03dac5;
-      transition: .2s;
-      color: #03dac5;
-    }
+  }
+  a::after {
+    content: "";
+    width: 0;
+    transition: all 0.5s ease;
+    border-bottom: 2px solid #03dac5;
+    display: block;
+  }
+  a:hover::after {
+    width: 100%;
+    border-bottom: 2px solid #03dac5;
   }
 `
-const Main = styled.main`
-  text-align: center;
-`
+const Main = styled.main``
 
 const Layout = ({ children }) => {
+  let prevScroll = window.pageYOffset
+  useEffect(() => {
+    document.addEventListener("scroll", () => {
+      const currentScroll = window.pageYOffset
+      if (prevScroll > currentScroll) {
+        document.getElementById("header").style.top = "0"
+      } else {
+        document.getElementById("header").style.top = "-100px"
+      }
+      prevScroll = currentScroll
+    })
+  },[prevScroll])
   return (
     <>
-      <Header>
-        <StaticQuery
-          query={`${navigationQuery}`}
-          render={data => {
-            console.log(data)
-            return (
-              <>
-                <Branding>
-                  <Link to="/">
-                    {data.prismic.allNavigations.edges[0].node.branding}
-                  </Link>
-                </Branding>
-                <NaviLinks>
-                  {data.prismic.allNavigations.edges[0].node.navigation_links.map(
-                    link => {
-                      return (
-                        <NaviLink key={link.link._meta.uid}>
-                          <Link to={`/${link.link._meta.uid}`}>
-                            <Button>{link.label}</Button>
-                          </Link>
-                        </NaviLink>
-                      )
-                    }
-                  )}
-                </NaviLinks>
-              </>
-            )
-          }}
-        />
+      <Header id="header">
+        <div>
+          <StaticQuery
+            query={`${navigationQuery}`}
+            render={data => {
+              console.log(data)
+              return (
+                <>
+                  <Branding>
+                    <Link to="/">
+                      {data.prismic.allNavigations.edges[0].node.branding}
+                    </Link>
+                  </Branding>
+                  <NaviLinks>
+                    {data.prismic.allNavigations.edges[0].node.navigation_links.map(
+                      link => {
+                        return (
+                          <NaviLink key={link.link._meta.uid}>
+                            <Link to={`/${link.link._meta.uid}`}>
+                              {link.label}
+                            </Link>
+                          </NaviLink>
+                        )
+                      }
+                    )}
+                  </NaviLinks>
+                </>
+              )
+            }}
+          />
+        </div>
       </Header>
       <Main>{children}</Main>
       <Footer />
