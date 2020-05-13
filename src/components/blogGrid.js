@@ -10,6 +10,9 @@ const BlogGridWrapper = styled.section`
     border-left: 3px solid #03dac5;
     padding-left: 10px;
   }
+  >div{
+    display: flex;
+      }
 `
 
 const BlogGrid = ({ title, blogGrids }) => {
