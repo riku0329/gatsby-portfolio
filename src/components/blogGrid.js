@@ -12,6 +12,7 @@ const BlogGridWrapper = styled.section`
   }
   >div{
     display: flex;
+    flex-wrap: wrap;
       }
 `
 
