@@ -11,6 +11,14 @@ const ArticleBody = styled.div`
     border-left: 4px solid #03dac5;
     padding-left: 8px;
   }
+  p {
+    font-size: 16px;
+  }
+  @media (max-width: 768px) {
+    p {
+      font-size: 10px;
+    }
+  }
 `
 
 const ArticleGrid = ({ title, description, articles }) => {

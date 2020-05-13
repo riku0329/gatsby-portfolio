@@ -56,6 +56,14 @@ const ArticleWrapper = styled.article`
   .article-header {
     border-bottom: 2px solid #c0c0c0c0;
   }
+  p{
+    font-size: 16px
+  }
+  @media (max-width: 768px){
+    p{
+      font-size: 10px;
+    }
+  }
 `
 
 const Blog = props => {
