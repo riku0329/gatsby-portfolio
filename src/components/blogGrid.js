@@ -6,6 +6,10 @@ import BlogBlock from "./blogBlock"
 const BlogGridWrapper = styled.section`
   max-width: 800px;
   margin: 0 auto 150px auto;
+  @media (max-width: 768px) {
+    width: 90%;
+    margin: 0 auto;
+  }
   h1 {
     border-left: 3px solid #03dac5;
     padding-left: 10px;

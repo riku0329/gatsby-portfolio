@@ -9,6 +9,12 @@ const CallToActionGridWrapper = styled.section`
   margin: 0 auto 150px auto;
   display: flex;
   flex-direction: column;
+
+
+  @media (max-width: 768px) {
+    width: 90%;
+    margin: 0 auto;
+  }
   .call-toaction-link {
     width: 90px;
     text-decoration: none;

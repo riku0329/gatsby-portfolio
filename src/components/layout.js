@@ -110,7 +110,8 @@ const Branding = styled.div`
     border-bottom: 2px solid #03dac5;
   }
 `
-const Main = styled.main``
+const Main = styled.main`
+`
 
 const Layout = ({ children }) => {
   useEffect(() => {

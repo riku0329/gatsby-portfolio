@@ -8,6 +8,10 @@ const AboutWrapper = styled.section`
   padding-bottom: 50px;
   margin-bottom: 100px;
   border-bottom: 2px solid #c0c0c0c0;
+  @media (max-width: 768px) {
+    width: 90%;
+    margin: 0 auto;
+  }
 
   h1 {
     border-left: 3px solid #03dac5;
