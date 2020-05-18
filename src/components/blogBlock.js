@@ -18,12 +18,20 @@ const BlogBlockWrapper = styled.div`
 
   @media (max-width: 768px) {
     margin: 20px 0;
+    width: 60%;
+  }
+  @media (max-width: 500px) {
     width: 90%;
   }
 
   :hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     opacity: 0.8;
+  }
+  .blog-image {
+    max-width: 100%;
+    height: 200px;
+    margin: 0;
   }
 
   img {
@@ -51,7 +59,7 @@ const BlogBlock = ({ destination, title, date, image }) => {
   return (
     <BlogBlockWrapper>
       <Link to={destination}>
-        <div>
+        <div className="blog-image">
           <img src={image} alt="blogs" />
         </div>
         <div className="blog-block-content">

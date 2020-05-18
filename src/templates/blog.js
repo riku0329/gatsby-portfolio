@@ -61,7 +61,7 @@ const ArticleWrapper = styled.article`
   }
   @media (max-width: 768px){
     width: 90%;
-    margin:0 auto;
+    margin:10rem auto;
     p{
       font-size: 10px;
     }

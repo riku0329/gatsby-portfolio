@@ -10,13 +10,17 @@ const CallToActionBlockWrapper = styled.div`
   margin: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  height: 350px;
+  height: 400px;
   a {
     text-decoration: none;
   }
 
   @media (max-width: 768px) {
     margin: 20px 0;
+    width: 60%;
+  }
+
+  @media (max-width: 500px) {
     width: 90%;
   }
 

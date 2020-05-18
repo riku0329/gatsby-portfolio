@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useEffect } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
@@ -114,21 +114,9 @@ const Main = styled.main`
 `
 
 const Layout = ({ children }) => {
-  useEffect(() => {
-    let prevScroll = window.pageYOffset
-    document.addEventListener("scroll", () => {
-      const currentScroll = window.pageYOffset
-      if (prevScroll > currentScroll) {
-        document.getElementById("header").style.top = "0"
-      } else {
-        document.getElementById("header").style.top = "-100px"
-      }
-      prevScroll = currentScroll
-    })
-  })
   return (
     <>
-      <Header id="header">
+      <Header>
         <div>
           <StaticQuery
             query={`${navigationQuery}`}

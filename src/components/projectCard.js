@@ -3,7 +3,7 @@ import styled from "styled-components"
 import RichText from "./richText"
 
 const ProjectCardWrapper = styled.div`
-  background: white;
+  background: #fff;
   padding: 20px;
   margin: 50px 0;
   border-radius: 3px;
@@ -12,6 +12,11 @@ const ProjectCardWrapper = styled.div`
 
   :hover{
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px){
+    width: 90%;
+    margin: 50px auto;
   }
 
   .project-card-content {
@@ -31,7 +36,7 @@ const ProjectCardWrapper = styled.div`
   img {
     max-width: 500px;
     @media (max-width: 768px) {
-      max-width: 300px;
+      width: 100%;
     }
   }
 `

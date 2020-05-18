@@ -4,6 +4,7 @@ import RichText from "./richText"
 import BlogBlock from "./blogBlock"
 
 const BlogGridWrapper = styled.section`
+  width: 100%;
   max-width: 800px;
   margin: 0 auto 150px auto;
   @media (max-width: 768px) {
@@ -14,10 +15,20 @@ const BlogGridWrapper = styled.section`
     border-left: 3px solid #03dac5;
     padding-left: 10px;
   }
-  >div{
+  > div {
     display: flex;
     flex-wrap: wrap;
-      }
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 0;
+      width: 40%;
+      margin: 20px;
+    }
+  }
 `
 
 const BlogGrid = ({ title, blogGrids }) => {

@@ -19,13 +19,13 @@ const AboutWrapper = styled.section`
   }
 
   h2 {
-    margin: 80px 0;
     @media (max-width: 768px) {
       font-size: 18px;
       padding: 10px;
       margin-bottom: 0;
     }
   }
+
   .about-content {
     display: flex;
     justify-content: center;
@@ -37,13 +37,16 @@ const AboutWrapper = styled.section`
   }
   .about-image {
     margin-right: 16px;
-    width: 400px;
+    max-width: 100%;
+    height: 150px;
     @media (max-width: 768px) {
-      width: 100px;
+      width: 150px;
       margin: 20px 0;
     }
   }
   img {
+    width: 100%;
+    height: 150px;
     margin: 0;
     border-radius: 50%;
   }
