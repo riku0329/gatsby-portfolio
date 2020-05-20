@@ -7,7 +7,7 @@ const BlogGrid = ({ title, blogGrids }) => {
   return (
     <ContentSection>
       <RichText render={title} />
-      <p>最新記事一覧</p>
+      <p>最新記事一覧ほとんどメモの代わりです。</p>
       <div className="centent_list">
         {blogGrids.map((blogGrid, i) => {
           return (

@@ -40,6 +40,7 @@ const SkillList = ({ title, skills }) => {
     <SkillListWrapper>
       <div>
         <RichText render={title} />
+        <p>未経験ですが学ぶモチベーションと成長スピードはあります！</p>
         <div className="skill_list-wrap">
           {skills.map((skill, i) => {
             return (

@@ -9,6 +9,7 @@ const CallToActionGrid = ({ title, callToActions }) => {
   return (
     <ContentSection>
       <RichText render={title} />
+      <p>個人アプリで作成した物の一部です。</p>
       <div className="centent_list">
         {callToActions.map((callToAction, i) => {
           return (
