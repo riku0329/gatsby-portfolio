@@ -1,11 +1,12 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 
 import SEO from "../components/seo"
 import Layout from "../components/layout"
-import { SectionTitle } from "../components/sectionTitleStyled"
+import RichText from "../components/richText"
 import ProjectCard from "../components/projectCard"
+import { SectionTitle } from "../components/sectionTitleStyled"
 
 export const query = graphql`
   {
@@ -13,7 +14,7 @@ export const query = graphql`
       allProjects {
         edges {
           node {
-            project_title1
+            project_title
             project {
               project_description
               project_image
@@ -27,22 +28,47 @@ export const query = graphql`
 `
 
 const ProjectWrapper = styled.section`
-  background: #eee;
-  padding-top: 100px;
   max-width: 800px;
   margin: 0 auto;
+  margin-top: 100px;
+  h2 {
+    font-size: 3rem;
+  }
+  .tc{
+    text-align: center;
+  }
+  .project_path:after {
+    content: "プロジェクト";
+  }
+  .project_path {
+    a {
+      font-weight: bold;
+      color: #03dac5;
+    }
+    span {
+      margin: 0 10px 0 10px;
+    }
+  }
 `
 
 const Project = props => {
-  console.log(props)
   return (
     <Layout>
       <SEO title="project" />
       <ProjectWrapper>
+        <div>
+          <p className="project_path">
+            <Link to="/">ホーム</Link>
+            <span>></span>
+          </p>
+        </div>
+        <div className="tc">
         <SectionTitle>
-          {props.data.prismic.allProjects.edges[0].node.project_title1}
+          <RichText
+            render={props.data.prismic.allProjects.edges[0].node.project_title}
+          />
         </SectionTitle>
-
+        </div>
         {props.data.prismic.allProjects.edges[0].node.project.map(
           (project, i) => {
             return (

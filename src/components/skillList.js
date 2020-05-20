@@ -7,19 +7,30 @@ const SkillListWrapper = styled.section`
   background: #24252a;
   padding-top: 100px;
   color: #efeff4;
-  height: 100vh;
-  text-align: center;
-
-  @media (max-width: 768px){
-    height: 100%;
-  }
-  >div {
-    display: flex;
-    color: #03dac5;
-    max-width: 800px;
+  > div {
+    max-width: 960px;
     margin: 0 auto;
-    @media (max-width: 768px){
-      flex-direction: column;
+
+    h1 {
+      color: #efeff4;
+      border-left: 3px solid #03dac5;
+      padding-left: 10px;
+    }
+
+    .skill_list-wrap {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      color: #03dac5;
+    }
+
+    @media (max-width: 768px) {
+      width: 90%;
+      margin: 70px auto 0;
+
+      .skill_list-wrap {
+        flex-direction: column;
+      }
     }
   }
 `
@@ -27,17 +38,20 @@ const SkillListWrapper = styled.section`
 const SkillList = ({ title, skills }) => {
   return (
     <SkillListWrapper>
-      <RichText render={title} />
       <div>
-        {skills.map((skill, i) => {
-          return (
-            <SkillItem
-              key={i}
-              title={skill.skill_list_title}
-              description={skill.skill_list_description}
-            />
-          )
-        })}
+        <RichText render={title} />
+        <div className="skill_list-wrap">
+          {skills.map((skill, i) => {
+            return (
+              <SkillItem
+                key={i}
+                title={skill.skill_list_title}
+                description={skill.skill_list_description}
+                icon={skill.skill_icon.url}
+              />
+            )
+          })}
+        </div>
       </div>
     </SkillListWrapper>
   )

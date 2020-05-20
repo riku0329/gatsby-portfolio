@@ -1,83 +1,27 @@
 import React from "react"
-import styled from "styled-components"
 import RichText from "./richText"
-import CallToActionBlock from "./callToActionBlock"
+import ContentCard from "./contentCard"
 import { Link } from "gatsby"
+import {ContentSection} from "./content.style"
 
-const CallToActionGridWrapper = styled.section`
-  max-width: 800px;
-  margin: 0 auto 150px auto;
-  display: flex;
-  flex-direction: column;
-
-  @media (max-width: 768px) {
-    width: 90%;
-    margin: 150px auto;
-  }
-  .call-toaction-link {
-    width: 90px;
-    text-decoration: none;
-    color: #696969;
-    padding-bottom: 3px;
-  }
-
-  h1{
-    border-left: 3px solid #03dac5;
-    padding-left: 10px;
-  }
-
-  .call-toaction-link::after {
-    content: "";
-    width: 0;
-    transition: all 0.5s ease;
-    border-bottom: 2px solid #696969;
-    display: block;
-  }
-  .call-toaction-link:hover::after {
-    width: 100%;
-    border-bottom: 2px solid #696969;
-  }
-
-  .call-toaction-container {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    &::after {
-      content: "";
-      display: block;
-      height: 0;
-      width: 40%;
-      margin: 20px;
-    }
-
-    @media (max-width: 768px) {
-      flex-direction: column;
-      margin: 0;
-    }
-  }
-`
 
 const CallToActionGrid = ({ title, callToActions }) => {
   return (
-    <CallToActionGridWrapper>
+    <ContentSection>
       <RichText render={title} />
-      <div className="call-toaction-container">
+      <div className="centent_list">
         {callToActions.map((callToAction, i) => {
           return (
-            <CallToActionBlock
-              key={i}
+            <ContentCard key={i}
               title={callToAction.call_to_action_title}
               date={callToAction.call_to_action_date}
               link={callToAction.call_to_action_link.url}
-              featuredImage={callToAction.featured_image.url}
-            />
+              image={callToAction.featured_image.url} />
           )
         })}
       </div>
-          <Link className="call-toaction-link" to="/project">もっと見る</Link>
-    </CallToActionGridWrapper>
+          <Link className="content_link" to="/project">作成したアプリ一覧へ<span>></span></Link>
+    </ContentSection>
   )
 }
 

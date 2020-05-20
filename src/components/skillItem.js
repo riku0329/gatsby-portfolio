@@ -3,22 +3,27 @@ import styled from "styled-components"
 import RichText from "./richText"
 
 const SkillItemWrapper = styled.div`
-  flex-grow: 1;
-  flex-basis: 0;
+  width: 40%;
   margin: 50px 10px;
-  padding: 0 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  text-align: center;
+  padding: 40px;
+  h3{
+    text-align: center;
+    margin: 10px 0;
+  }
   .skill-item-description {
     color: #c3ccdb;
     font-weight: bold;
   }
+
 `
 
-const SkillItem = ({ title, description }) => {
+const SkillItem = ({ title, description, icon }) => {
   return (
     <SkillItemWrapper>
-      <div>
+      <img src={icon} alt="skill-icon"/>
         <RichText render={title} />
-      </div>
       <div className="skill-item-description">
         <RichText render={description} />
       </div>

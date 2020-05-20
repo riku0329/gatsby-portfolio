@@ -21,6 +21,9 @@ const ProjectCardWrapper = styled.div`
 
   .project-card-content {
     display: flex;
+    a{
+      color: #aaa;
+    }
     @media (max-width: 768px) {
       flex-direction: column;
     }

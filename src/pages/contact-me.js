@@ -5,6 +5,7 @@ import styled from "styled-components"
 import SEO from "../components/seo"
 
 import { SectionTitle } from "../components/sectionTitleStyled"
+import RichTextCustom from "../components/richText"
 
 export const query = graphql`
   {
@@ -13,7 +14,7 @@ export const query = graphql`
         edges {
           node {
             form_description
-            form_title1
+            form_title
             form_fields {
               field_name
               field_type
@@ -29,22 +30,26 @@ export const query = graphql`
 const ContactMeWrapper = styled.section`
   max-width: 800px;
   margin: 0 auto;
-  padding-top: 100px;
-  height: 97vh;
-  div {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding: 50px 0 50px;
+  box-shadow: 0 0px 20px rgba(0, 0, 0, 0.2);
+  > div {
     text-align: center;
+    width: 90%;
+    margin: 0 auto;
   }
-
+  h2{
+    font-size: 3rem;
+  }
   p {
-    padding-top: 20px;
+    margin-top: 20px;
   }
 `
 
 const Form = styled.form`
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
+  width: 90%;
+  margin: 20px auto 0;
 
   input {
     margin-bottom: 10px;
@@ -72,10 +77,10 @@ const Button = styled.button`
   padding: 4px 8px;
   box-shadow: none;
   border-radius: 4px;
+  transition: .5s;
 
   &:hover {
     background: #03dac5;
-    transition: 1.5s;
   }
 `
 
@@ -87,7 +92,7 @@ const ContactMe = props => {
       <ContactMeWrapper>
         <div>
           <SectionTitle>
-            {props.data.prismic.allContact_mes.edges[0].node.form_title1}
+            <RichTextCustom render={props.data.prismic.allContact_mes.edges[0].node.form_title} />
           </SectionTitle>
           <p>
             {props.data.prismic.allContact_mes.edges[0].node.form_description}
@@ -102,7 +107,6 @@ const ContactMe = props => {
           <input type="hidden" name="form-name" value="contact-me" />
           {props.data.prismic.allContact_mes.edges[0].node.form_fields.map(
             (field, i) => {
-              console.log(field)
               if (field.field_type === "textarea") {
                 return (
                   <div key={i}>

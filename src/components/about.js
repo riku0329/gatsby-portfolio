@@ -2,15 +2,16 @@ import React from "react"
 import styled from "styled-components"
 import RichText from "./richText"
 
-const AboutWrapper = styled.section`
-  max-width: 800px;
-  margin: 0 auto;
-  padding-bottom: 50px;
-  margin-bottom: 100px;
-  border-bottom: 2px solid #c0c0c0c0;
-  @media (max-width: 768px) {
-    width: 90%;
+const AboutSection = styled.section`
+  padding: 70px 0;
+  background: #f7f7f7;
+  .about_wrap {
+    max-width: 960px;
     margin: 0 auto;
+
+    @media (max-width: 768px) {
+      width: 90%;
+    }
   }
 
   h1 {
@@ -19,36 +20,28 @@ const AboutWrapper = styled.section`
   }
 
   h2 {
+    text-align: center;
     @media (max-width: 768px) {
-      font-size: 18px;
-      padding: 10px;
-      margin-bottom: 0;
+      padding: 8px;
     }
   }
 
   .about-content {
     display: flex;
     justify-content: center;
-    align-items: center;
     margin-top: 70px;
     @media (max-width: 768px) {
       flex-direction: column;
     }
   }
   .about-image {
-    margin-right: 16px;
-    max-width: 100%;
-    height: 150px;
-    @media (max-width: 768px) {
-      width: 150px;
-      margin: 20px 0;
-    }
-  }
-  img {
+    max-width: 150px;
     width: 100%;
-    height: 150px;
-    margin: 0;
-    border-radius: 50%;
+    margin-right: 50px;
+    img{
+      border-radius: 50%;
+
+    }
   }
   .about-description-wrapper {
     text-align: left;
@@ -57,18 +50,20 @@ const AboutWrapper = styled.section`
 
 const About = ({ title, description, image, aboutTitle }) => {
   return (
-    <AboutWrapper>
-      <RichText render={title} />
-      <RichText render={aboutTitle} />
-      <div className="about-content">
-        <div className="about-image">
-          <img src={image} alt="about-me" />
-        </div>
-        <div className="about-description-wrapper">
-          <RichText render={description} />
+    <AboutSection>
+      <div className="about_wrap">
+        <RichText render={title} />
+        <RichText render={aboutTitle} />
+        <div className="about-content">
+          <div className="about-image">
+            <img src={image} alt="about-me" />
+          </div>
+          <div className="about-description-wrapper">
+            <RichText render={description} />
+          </div>
         </div>
       </div>
-    </AboutWrapper>
+    </AboutSection>
   )
 }
 

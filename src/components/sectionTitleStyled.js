@@ -1,9 +1,8 @@
 import styled from "styled-components"
 
-export const SectionTitle = styled.p`
+export const SectionTitle = styled.div`
   position: relative;
   font-weight: bold;
-  font-size: 50px;
   border-bottom: 2em;
   display: inline-block;
   padding-bottom: 10px;
@@ -12,12 +11,12 @@ export const SectionTitle = styled.p`
     content: "";
     position: absolute;
     left: 50%;
-    bottom: -15px; /*線の上下位置*/
+    bottom: -1px;
     display: inline-block;
-    width: 60px; /*線の長さ*/
-    height: 5px; /*線の太さ*/
+    width: 60px;
+    height: 5px;
     -webkit-transform: translateX(-50%);
-    transform: translateX(-50%); /*位置調整*/
-  background-color: ${p => p.dark ? "#efeff4" : "#24252a"}; /*線の色*/
+    transform: translateX(-50%);
+    background-color: ${p => (p.dark ? "#efeff4" : "#24252a")};
   }
 `

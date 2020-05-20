@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 
 const FooterWrapper = styled.footer`
-  height: 30vh;
+  padding: 60px 0;
   background: #121212;
   color: #545557;
   display: flex;
@@ -14,8 +14,23 @@ const FooterWrapper = styled.footer`
     display: flex;
     flex-direction: column;
   }
+  .footer_contact {
+    display: block;
+    text-align: center;
+    background: #24252a;
+    color: #efeff4;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    &:hover {
+      transition: 0.3s;
+      background: #03dac5;
+      color: #24252a;
+    }
+  }
   a {
     text-decoration: none;
+    text-align: center;
     margin: 8px 0;
     color: #efeff4;
     :hover {
@@ -23,24 +38,13 @@ const FooterWrapper = styled.footer`
     }
   }
 `
-const Button = styled.button`
-  background: #24252a;
-  color: #efeff4;
-  border: none;
-  border-radius: 5px;
-  &:hover {
-    transition: 0.3s;
-    background: #03dac5;
-    color: #24252a;
-  }
-`
 
 const Footer = () => {
   return (
     <FooterWrapper>
       <div>
-        <Link to="/contact-me">
-          <Button>Contact</Button>
+        <Link to="/contact-me" className="footer_contact">
+          Contact
         </Link>
         <a
           href="https://github.com/riku0329/"

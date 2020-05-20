@@ -57,7 +57,7 @@ const Header = styled.header`
   border-bottom: 2px solid #03dac5;
   > div {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     max-width: 960px;
     margin: 0 auto;
@@ -93,8 +93,9 @@ const NaviLink = styled.li`
 `
 const Branding = styled.div`
   a {
+    font-family: 'Squada One', cursive;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 2em;
     color: #efeff4;
     text-decoration: none;
   }

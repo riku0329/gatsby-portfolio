@@ -6,18 +6,13 @@ import ArticleBlock from "./articleBlock"
 
 const ArticleBody = styled.div`
   margin-top: 5rem;
-  border-bottom: 2px solid #c0c0c0c0;
+  border-bottom: 1px solid #c0c0c0c0;
   .article-title {
     border-left: 4px solid #03dac5;
     padding-left: 8px;
   }
   p {
-    font-size: 16px;
-  }
-  @media (max-width: 768px) {
-    p {
-      font-size: 10px;
-    }
+    padding-bottom: 10px;
   }
 `
 

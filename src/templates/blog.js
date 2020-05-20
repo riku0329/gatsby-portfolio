@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import RichText from "../components/richText"
@@ -45,16 +45,26 @@ export const query = graphql`
 const BlogWrapper = styled.div`
   max-width: 800px;
   margin: 0 auto;
+  margin-top: 100px;
+  .home_path:after {
+    content: "ブログ";
+  }
+  .home_path {
+    a {
+      font-weight: bold;
+      color: #03dac5;
+    }
+    span {
+      margin: 0 10px 0 10px;
+    }
+  }
 `
 
 const ArticleWrapper = styled.article`
   margin: 10rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   .article-header {
-    border-bottom: 2px solid #c0c0c0c0;
+    border-bottom: 1px solid #c0c0c0c0;
+    padding-bottom: 20px;
   }
   p{
     font-size: 16px
@@ -77,6 +87,12 @@ const Blog = props => {
     <Layout>
       <SEO title={title[0].text} description={description} />
       <BlogWrapper>
+        <div>
+          <p className="home_path">
+            <Link to="/">ホーム</Link>
+            <span>></span>
+          </p>
+        </div>
         <ArticleWrapper>
           <header className="article-header">
             <RichText render={title} />

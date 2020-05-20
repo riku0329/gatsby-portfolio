@@ -2,34 +2,42 @@ import React from "react"
 import styled from "styled-components"
 import RichText from "./richText"
 
-const HeroWrapper = styled.section`
-  height: calc(90vh - 66px);
-  background: #24252a;
+const HeroWrap = styled.section`
+  background: url('${props => props.image}');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 85vh;
   display: flex;
   align-items: center;
   text-align: center;
-  color: #efeff4;
-  margin-bottom: 100px;
   h1{
-    font-size: 60px;
+    font-size: 5.3rem;
   }
-  div {
+  .hero_title {
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 960px;
   }
   p {
     color: #03dac5;
+    font-weight: bold;
+  }
+  img:hover{
+    opacity: 0.8;
   }
 `
 
-const Hero = ({ title, description }) => {
+const Hero = ({ title, description, image, logo }) => {
+  console.log(image);
   return (
-    <HeroWrapper>
-      <div>
+    <HeroWrap image={image}>
+      <div className="hero_title">
         <RichText render={title} />
         <p>{description}</p>
+        <a className="hero_logo" href="https://github.com/riku0329/" target="_blank" rel="noreferrer noopener">
+          <img src={logo} alt="logo"/>
+        </a>
       </div>
-    </HeroWrapper>
+    </HeroWrap>
   )
 }
 

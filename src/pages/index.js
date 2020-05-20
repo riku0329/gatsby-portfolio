@@ -17,6 +17,8 @@ export const query = graphql`
                 primary {
                   hero_title
                   hero_description
+                  hero_image
+                  hero_logo
                 }
               }
               ... on PRISMIC_HomepageBodyAbout {
@@ -72,6 +74,7 @@ export const query = graphql`
                 fields {
                   skill_list_description
                   skill_list_title
+                  skill_icon
                 }
               }
             }

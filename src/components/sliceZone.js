@@ -17,6 +17,8 @@ const SliceZone = ({ body }) => {
               key={i}
               title={bodyContent.primary.hero_title}
               description={bodyContent.primary.hero_description}
+              image={bodyContent.primary.hero_image.url}
+              logo={bodyContent.primary.hero_logo.url}
             />
           )
         } else if (bodyContent.type === "about") {
