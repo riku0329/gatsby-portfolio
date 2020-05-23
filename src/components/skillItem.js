@@ -17,6 +17,10 @@ const SkillItemWrapper = styled.div`
     font-weight: bold;
   }
 
+  @media (max-width: 768px){
+    width: 90%;
+  }
+
 `
 
 const SkillItem = ({ title, description, icon }) => {
