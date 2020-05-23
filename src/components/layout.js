@@ -62,6 +62,9 @@ const Header = styled.header`
     max-width: 960px;
     margin: 0 auto;
     height: 100%;
+    @media (max-width: 768px) {
+      justify-content: space-around;
+    }
   }
 `
 
